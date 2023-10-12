@@ -20,7 +20,7 @@ public class RegController {
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody User user) {
         if (userService.findByUsername(user.getUsername()) != null) {
-            return new ResponseEntity<>("Username is already taken.", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Username is already taken.", HttpStatus.CONFLICT);
         }
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
