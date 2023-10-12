@@ -7,13 +7,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
 public class RegApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RegApplication.class, args);
 	}
-@GetMapping("/hello")
-	public String hello(){
-		return "Hello World";
-}
+
 }
