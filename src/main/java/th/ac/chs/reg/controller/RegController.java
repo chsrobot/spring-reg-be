@@ -33,8 +33,13 @@ public class RegController {
 
     @PostMapping("/login")
     public  ResponseEntity<String> loginUser(@RequestBody User user){
-
-      return new ResponseEntity<>("sdasd", HttpStatus.OK);
+        try{
+            userService.loginUser(user);
+            return new ResponseEntity<>("OK" , HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>("NONONO",HttpStatus.UNAUTHORIZED);
+        }
     }
 
 

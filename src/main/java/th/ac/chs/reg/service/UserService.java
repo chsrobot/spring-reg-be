@@ -30,20 +30,19 @@ public class UserService {
         }
     }
 
-    public ResponseEntity<String> loginUser(User user){
+    public User loginUser(User user) throws Exception {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         try{
             User checkuser = userRepository.findByUsername(user.getUsername());
             if(passwordEncoder.matches(user.getPassword() , checkuser.getPassword())){
-                System.out.println("YOHHH");
+                return checkuser;
             }
             else{
-                System.out.println("YEHHH");
+                throw new Exception("Invalid Credential");
             }
         }
         catch (Exception e){
-
+            throw new Exception("Invalid Credential");
         }
-        return null;
     }
 }
