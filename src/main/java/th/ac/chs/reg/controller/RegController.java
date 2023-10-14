@@ -8,24 +8,33 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import th.ac.chs.reg.model.User;
 import th.ac.chs.reg.service.UserService;
 
 @RestController
+@RequestMapping("/api")
 public class RegController {
     @Autowired
     private UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody User user) {
-        if (userService.findByUsername(user.getUsername()) != null) {
-            return new ResponseEntity<>("Username is already taken.", HttpStatus.CONFLICT);
+    public ResponseEntity<String> registerUser(@RequestBody User user) throws Exception {
+
+        try{
+            userService.registerUser(user);
+            return new ResponseEntity<>("Created" , HttpStatus.CREATED);
         }
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userService.save(user);
-        return new ResponseEntity<>("User registered successfully.", HttpStatus.CREATED);
+        catch (Exception e){
+            return new ResponseEntity<>("Conflict",HttpStatus.CONFLICT);
+        }
+    }
+
+    @PostMapping("/login")
+    public  ResponseEntity<String> loginUser(@RequestBody User user){
+
+      return new ResponseEntity<>("sdasd", HttpStatus.OK);
     }
 
 
