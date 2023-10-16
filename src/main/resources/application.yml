@@ -4,7 +4,3 @@ spring:
     username: reg2024
     password: Chsp@ssw0rd
     driver-class-name: org.postgresql.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
