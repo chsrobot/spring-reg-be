@@ -32,7 +32,7 @@ jobs:
             git pull origin develop
             chmod +x deploy.sh
             ./deploy.sh
-            sudo systemctl restart reg2024-be
+            sudo systemctl restart reg2024-be -S ${{ secrets.PASSWORD }}
 
       # - name: Build and Deploy
       #   run: |
