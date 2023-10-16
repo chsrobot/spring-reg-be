@@ -7,4 +7,4 @@
 cp target/reg-0.0.1-SNAPSHOT.jar /home/adminreg/deployment/reg2024-be
 
 # Restart the application
-systemctl restart reg2024-be.service
+sudo systemctl restart reg2024-be.service
