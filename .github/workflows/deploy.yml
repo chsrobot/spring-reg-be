@@ -27,9 +27,6 @@ jobs:
             cd /home/adminreg/reg2024/reg-be 
             git fetch
             git pull origin develop
-            chmod +x deploy.sh
-            ./deploy.sh
-
 
       # - name: Build and Deploy
       #   run: |
