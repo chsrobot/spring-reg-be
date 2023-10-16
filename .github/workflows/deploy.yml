@@ -1,6 +1,9 @@
 name: Deploy REG2024 BE
 
 on:
+  push:
+    branches:
+      - develop
   pull_request:
     types:
       - closed
@@ -9,24 +12,24 @@ jobs:
   deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up JDK
-        uses: actions/setup-java@v2
+      # - name: Set up JDK
+      #   uses: actions/setup-java@v2
 
-     - name: Deploy to server via SSH
+      - name: Deploy to server via SSH
         uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: "cd /home/adminreg/reg2024/reg-be 
-          && git fetch && git pull origin develop
-          && chmod +x deploy.sh && ./deploy.sh"
+          script: |
+            cd /home/adminreg/reg2024/reg-be
+            git fetch
+            git pull origin develop
 
       # - name: Build and Deploy
       #   run: |
