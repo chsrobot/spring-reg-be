@@ -1,0 +1,29 @@
+name: Deploy REG2024 BE
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+
+      - name: Build and Deploy
+        run: |
+          chmod +x deploy.sh
+          ./deploy.sh
+        env:
+          SPRING_PROFILES_ACTIVE: development
