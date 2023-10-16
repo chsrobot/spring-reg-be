@@ -17,15 +17,19 @@ jobs:
         uses: actions/setup-java@v2
 
       - name: Deploy to server via SSH
-          uses: appleboy/ssh-action@v0.1.7
-          with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USERNAME }}
-            password: ${{ secrets.PASSWORD }}
-            port: ${{ secrets.PORT }}
-            script: "cd /home/adminreg/reg2024/reg-be 
-            && git fetch && git pull origin develop
-            && chmod +x deploy.sh && ./deploy.sh"
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /home/adminreg/reg2024/reg-be 
+            git fetch
+            git pull origin develop
+            chmod +x deploy.sh
+            ./deploy.sh
+
 
       # - name: Build and Deploy
       #   run: |
