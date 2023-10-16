@@ -1,9 +1,12 @@
 name: Deploy REG2024 BE
 
-on: 
+on:
   push:
-    branches:    
-      - feature/ci-cd-workflow 
+    branches:
+      - develop
+  pull_request:
+    types:
+      - closed
 
 jobs:
   deploy:
@@ -24,7 +27,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /home/adminreg/reg2024/reg-be 
+            cd /home/adminreg/reg2024/reg-be
             git fetch
             git pull origin develop
 
