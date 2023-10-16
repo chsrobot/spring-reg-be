@@ -32,6 +32,8 @@ jobs:
             git pull origin develop
             chmod +x deploy.sh
             ./deploy.sh
+          env:
+            SUPER_SECRET_PASSWORD: ${{ secrets.PASSWORD }}
 
       # - name: Build and Deploy
       #   run: |
