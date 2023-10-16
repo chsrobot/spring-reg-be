@@ -1,12 +1,12 @@
 name: Deploy REG2024 BE
 
 on:
-  push:
-    branches:
-      - feature/ci-cd-workflow
-  # pull_request:
-  #   types:
-  #     - closed
+  # push:
+  #   branches:
+  #     - develop
+  pull_request:
+    types:
+      - closed
 
 jobs:
   deploy:
