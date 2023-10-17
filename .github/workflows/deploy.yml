@@ -28,8 +28,8 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /home/adminreg/reg2024/reg-be
-            git fetch --all
             git reset --hard origin/develop
+            git fetch --all
             git pull origin develop
             chmod +x deploy.sh
             ./deploy.sh
