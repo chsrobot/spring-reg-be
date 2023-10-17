@@ -31,7 +31,7 @@ public class RegController {
 
     @GetMapping("/hello")
     public ResponseEntity<String> hello(){
-        return new ResponseEntity<>("Hello This is Test After Config", HttpStatus.OK);
+        return new ResponseEntity<>("Its works with docker", HttpStatus.OK);
     }
 
     @PostMapping("/login")
