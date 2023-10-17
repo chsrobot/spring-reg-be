@@ -1,15 +1,13 @@
 package th.ac.chs.reg.controller;
 
 import ch.qos.logback.core.model.Model;
+import org.json.HTTP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import th.ac.chs.reg.model.User;
 import th.ac.chs.reg.service.UserService;
 
@@ -29,6 +27,11 @@ public class RegController {
         catch (Exception e){
             return new ResponseEntity<>("Conflict",HttpStatus.CONFLICT);
         }
+    }
+
+    @GetMapping("/hello")
+    public ResponseEntity<String> hello(){
+        return new ResponseEntity<>("Hello This is Test After Config", HttpStatus.OK);
     }
 
     @PostMapping("/login")
