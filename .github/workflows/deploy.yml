@@ -28,11 +28,11 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /home/adminreg/reg2024/reg-be
-            git fetch
+            git fetch -all
+            git reset --hard origin/develop
             git pull origin develop
             chmod +x deploy.sh
             ./deploy.sh
-            echo ${{ secrets.PASSWORD }} | sudo -S systemctl restart reg2024-be
 
       # - name: Build and Deploy
       #   run: |
