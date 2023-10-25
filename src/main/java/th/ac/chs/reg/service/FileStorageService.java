@@ -24,8 +24,8 @@ public class FileStorageService {
         FileManagerModel fileToSave = new FileManagerModel();
         String filename = fileIOUtils.storeFile(file);
         fileToSave.setFileName(filename);
-        fileToSave.setFileType("Type");
-        fileToSave.setUsername("Username");
+        fileToSave.setFileType("Type"); //testing
+        fileToSave.setUsername("Username");  //testing
         fileManagerRepository.save(fileToSave);
         return filename;
     }
