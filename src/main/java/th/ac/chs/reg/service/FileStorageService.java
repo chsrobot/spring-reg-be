@@ -6,6 +6,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import th.ac.chs.reg.model.FileManagerModel;
+import th.ac.chs.reg.repository.FileManagerRepository;
 import th.ac.chs.reg.utils.FileIOUtils;
 
 import java.io.IOException;
@@ -14,8 +16,17 @@ import java.io.IOException;
 public class FileStorageService {
     @Autowired
     private FileIOUtils fileIOUtils;
+
+    @Autowired
+    private FileManagerRepository fileManagerRepository;
+    private FileManagerModel fileManagerModel;
     public String storeFile(MultipartFile file) throws IOException {
+        FileManagerModel fileToSave = new FileManagerModel();
         String filename = fileIOUtils.storeFile(file);
+        fileToSave.setFileName(filename);
+        fileToSave.setFileType("Type");
+        fileToSave.setUsername("Username");
+        fileManagerRepository.save(fileToSave);
         return filename;
     }
 
