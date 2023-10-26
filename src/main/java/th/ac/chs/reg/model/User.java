@@ -26,6 +26,8 @@ public class User implements Serializable {
 
     @Column(name = "updated_at")
     private Long updatedAt;
+    @Column(name = "activation_code")
+    private String activationCode;
 
     @PrePersist
     protected void onCreate() {
