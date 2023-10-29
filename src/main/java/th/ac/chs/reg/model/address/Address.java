@@ -1,8 +1,9 @@
-package th.ac.chs.reg.model;
+package th.ac.chs.reg.model.address;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import th.ac.chs.reg.model.BaseEntity;
 
 import java.time.Instant;
 
@@ -50,11 +51,4 @@ public class Address extends BaseEntity {
     @Column(name = "phone_num", nullable = false)
     private Long phoneNum;
 
-    @Column(name = "updated_at")
-    private Long updatedAt;
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = Instant.now().getEpochSecond();
-    }
 }

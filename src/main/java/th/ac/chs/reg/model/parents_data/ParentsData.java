@@ -1,8 +1,9 @@
-package th.ac.chs.reg.model;
+package th.ac.chs.reg.model.parents_data;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import th.ac.chs.reg.model.BaseEntity;
 
 import java.time.Instant;
 
@@ -77,11 +78,4 @@ public class ParentsData extends BaseEntity {
     @Column(name = "postal_code", nullable = false)
     private String postalCode;
 
-    @Column(name = "updated_at")
-    private Long updatedAt;
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = Instant.now().getEpochSecond();
-    }
 }

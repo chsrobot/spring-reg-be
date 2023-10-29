@@ -1,8 +1,9 @@
-package th.ac.chs.reg.model;
+package th.ac.chs.reg.model.education;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import th.ac.chs.reg.model.BaseEntity;
 
 import java.time.Instant;
 
@@ -11,8 +12,8 @@ import java.time.Instant;
 @Entity(name = "education")
 public class Education extends BaseEntity {
 
-    @Column(name = "typeroom")
-    private String typeRoom;
+    @Column(name = "extra_type")
+    private String extraType;
 
     @Column(name = "typeroom1")
     private String typeRoom1;
@@ -23,8 +24,8 @@ public class Education extends BaseEntity {
     @Column(name = "typeroom3")
     private String typeRoom3;
 
-    @Column(name = "school_name", nullable = false)
-    private String schoolName;
+    @Column(name = "last_school", nullable = false)
+    private String lastSchool;
 
     @Column(name = "district", nullable = false)
     private String district;
@@ -53,11 +54,4 @@ public class Education extends BaseEntity {
     @Column(name = "talent")
     private String talent;
 
-    @Column(name = "updated_at")
-    private Long updatedAt;
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = Instant.now().getEpochSecond();
-    }
 }
