@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://172.17.0.1:5432/reg2024
+    url: jdbc:postgresql://61.7.236.53:5432/reg2024
     username: reg2024
     password: Chsp@ssw0rd
     driver-class-name: org.postgresql.Driver
