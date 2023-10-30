@@ -18,22 +18,22 @@ public class UserData extends BaseEntity {
     @Column(name = "identity_num", nullable = false)
     private Long identityNum;
 
-    @Column(name = "name_titleTH", nullable = false)
+    @Column(name = "name_title_th", nullable = false)
     private String nameTitleTH;
 
-    @Column(name = "firstnameTH", nullable = false)
+    @Column(name = "firstname_th", nullable = false)
     private String firstNameTH;
 
-    @Column(name = "lastnameTH", nullable = false)
+    @Column(name = "lastname_th", nullable = false)
     private String lastNameTH;
 
-    @Column(name = "name_titleEN", nullable = false)
+    @Column(name = "name_title_en", nullable = false)
     private String nameTitleEN;
 
-    @Column(name = "firstnameEN", nullable = false)
+    @Column(name = "firstname_en", nullable = false)
     private String firstNameEN;
 
-    @Column(name = "lastnameEN", nullable = false)
+    @Column(name = "lastname_en", nullable = false)
     private String lastNameEN;
 
     @Column(name = "birth_day", nullable = false)
