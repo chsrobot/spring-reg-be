@@ -1,4 +1,4 @@
-package th.ac.chs.reg.model.education;
+package th.ac.chs.reg.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
