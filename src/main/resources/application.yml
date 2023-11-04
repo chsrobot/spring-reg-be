@@ -7,3 +7,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: ${HIBERNATE_DDL_AUTO}
+
+file:
+  upload-dir: ${FILE_UPLOAD_DIR}
