@@ -14,68 +14,90 @@ public class ParentsData extends BaseEntity {
 
     @Column(name = "name_title_th", nullable = false)
     private String nameTitleTH;
+    //registeration and confirmation
 
     @Column(name = "firstname_th", nullable = false)
     private String firstNameTH;
+    //registeration and confirmation
 
     @Column(name = "lastname_th", nullable = false)
     private String lastNameTH;
+    //registeration and confirmation
 
     @Column(name = "name_title_en", nullable = false)
     private String nameTitleEN;
+    //registeration and confirmation
 
     @Column(name = "firstname_en", nullable = false)
     private String firstNameEN;
+    //registeration and confirmation
 
     @Column(name = "lastname_en", nullable = false)
     private String lastNameEN;
+    //registeration and confirmation
 
     @Column(name = "identity_num", nullable = false)
     private Long identityNum;
+    //registeration and confirmation
 
-    @Column(name = "relation", nullable = false)
+    @Column(name = "relation")
     private String relation;
+    //registeration and confirmation
 
     @Column(name = "age", nullable = false)
     private Long age;
+    //registeration and confirmation
 
     @Column(name = "phone_num", nullable = false)
     private Long phoneNum;
+    //registeration and confirmation
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
+    //registeration and confirmation
 
     @Column(name = "career")
     private String career;
+    //registeration and confirmation
 
     @Column(name = "position")
     private String position;
+    //registeration and confirmation
 
     @Column(name = "salary")
     private Long salary;
+    //registeration and confirmation
 
-    @Column(name = "office_num", nullable = false)
+    @Column(name = "office_num")
     private Long officeNum;
+    //registeration
 
     @Column(name = "village_num")
     private Long villageNum;
+    //registeration
 
     @Column(name = "lane")
     private String lane;
+    //registeration
 
     @Column(name = "road")
     private String road;
+    //registeration
 
-    @Column(name = "sub_district", nullable = false)
+    @Column(name = "sub_district")
     private String subDistrict;
+    //registeration
 
-    @Column(name = "district", nullable = false)
+    @Column(name = "district")
     private String district;
+    //registeration
 
-    @Column(name = "province", nullable = false)
+    @Column(name = "province")
     private String province;
+    //registeration
 
-    @Column(name = "postal_code", nullable = false)
+    @Column(name = "postal_code")
     private String postalCode;
+    //registeration
 
 }
