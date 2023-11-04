@@ -19,4 +19,16 @@ public class User extends BaseEntity implements Serializable {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "created_at")
+    private Long createdAt;
+
+    @Column(name = "updated_at")
+    private Long updatedAt;
+    @Column(name = "activation_code")
+    private String activationCode;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = Instant.now().getEpochSecond();
+    }
 }
