@@ -12,6 +12,9 @@ import java.time.Instant;
 @Entity(name = "parents_data")
 public class ParentsData extends BaseEntity {
 
+    @Column(name = "type_parent",nullable = false)
+    private String typeParent;
+
     @Column(name = "name_title_th", nullable = false)
     private String nameTitleTH;
 
