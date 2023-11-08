@@ -21,7 +21,7 @@ public class Address extends BaseEntity {
     //registeration and confirmation
 
     @Column(name = "house_num", nullable = false)
-    private Long houseNum;
+    private String houseNum;
     //registeration and confirmation
 
     @Column(name = "village_num")
@@ -63,5 +63,32 @@ public class Address extends BaseEntity {
     @Column(name = "phone_num", nullable = false)
     private Long phoneNum;
     //registeration and confirmation
+
+    @Column(name = "check_sub_district")
+    boolean checkSubDistrict = false;
+    public boolean isCheckSubDistrict() {
+        if (subDistrict.equals("ในเมือง")){
+            checkSubDistrict = true;
+        }
+        return false;
+    }
+
+    @Column(name = "check_district")
+    boolean checkDistrict = false;
+    public boolean isCheckDistrict() {
+        if (district.equals("เมืองพิษณุโลก")){
+            checkDistrict = true;
+        }
+        return false;
+    }
+
+    @Column(name = "check_province")
+    boolean checkProvince = false;
+    public boolean isCheckProvince() {
+        if (province.equals("พิษณุโลก")){
+            checkProvince = true;
+        }
+        return false;
+    }
 
 }

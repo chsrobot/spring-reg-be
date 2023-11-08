@@ -84,44 +84,44 @@ public class UserData extends BaseEntity {
     private String bornProvince;
     //registeration and confirmation
 
-    @Column(name = "house_code", nullable = false)
-    private Long houseCode;
+    @Column(name = "house_code_now", nullable = false)
+    private Long houseCodeNow;
     //registeration and confirmation
 
-    @Column(name = "house_num", nullable = false)
-    private Long houseNum;
+    @Column(name = "house_num_now", nullable = false)
+    private String houseNumNow;
     //registeration and confirmation
 
-    @Column(name = "village_num")
-    private Long villageNum;
+    @Column(name = "village_num_now")
+    private Long villageNumNow;
     //registeration and confirmation
 
-    @Column(name = "village")
-    private String village;
+    @Column(name = "village_now")
+    private String villageNow;
     //registeration and confirmation
 
-    @Column(name = "lane")
-    private String lane;
+    @Column(name = "lane_now")
+    private String laneNow;
     //registeration and confirmation
 
-    @Column(name = "road")
-    private String road;
+    @Column(name = "road_now")
+    private String roadNow;
     //registeration and confirmation
 
-    @Column(name = "sub_district", nullable = false)
-    private String subDistrict;
+    @Column(name = "sub_district_now", nullable = false)
+    private String subDistrictNow;
     //registeration and confirmation
 
-    @Column(name = "district", nullable = false)
-    private String district;
+    @Column(name = "district_now", nullable = false)
+    private String districtNow;
     //registeration and confirmation
 
-    @Column(name = "province", nullable = false)
-    private String province;
+    @Column(name = "province_now", nullable = false)
+    private String provinceNow;
     //registeration and confirmation
 
-    @Column(name = "postal_code", nullable = false)
-    private String postalCode;
+    @Column(name = "postal_code_now", nullable = false)
+    private String postalCodeNow;
     //registeration and confirmation
 
     @Column(name = "phone_num", nullable = false)
