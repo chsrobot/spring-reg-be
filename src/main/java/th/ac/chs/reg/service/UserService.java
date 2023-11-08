@@ -14,7 +14,7 @@ import th.ac.chs.reg.repository.UserRepository;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
-    private UserService userService;
+
     @Autowired
     private ActivationCodeService activationCodeService;
 
