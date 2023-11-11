@@ -19,7 +19,7 @@ public class ParentsDataController {
         this.parentsDataService = parentsDataService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<ParentsData>> getAllParentsData() {
         return ResponseEntity.ok(parentsDataService.getAllParentsData());
     }
@@ -43,7 +43,7 @@ public class ParentsDataController {
         return ResponseEntity.ok(parentsData);
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<ParentsData> saveParentsData(@RequestBody ParentsData parentsData) {
         ParentsData savedParentsData = parentsDataService.saveParentsData(parentsData);
         return ResponseEntity.ok(savedParentsData);
