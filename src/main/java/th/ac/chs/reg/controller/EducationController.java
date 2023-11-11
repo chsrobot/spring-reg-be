@@ -19,24 +19,24 @@ public class EducationController {
         this.educationService = educationService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<Education>> getAllEducations() {
         return ResponseEntity.ok(educationService.getAllEducations());
     }
 
-    @GetMapping("/username/{username}")
+    @GetMapping("/{username}")
     public ResponseEntity<Education> getEducationByUsername(@PathVariable String username) {
         Education education = educationService.getEducationByUsername(username);
         return ResponseEntity.ok(education);
     }
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<Education> saveEducation(@RequestBody Education education) {
         Education savedEducation = educationService.saveEducation(education);
         return ResponseEntity.ok(savedEducation);
     }
 
-    @DeleteMapping("/username/{username}")
+    @DeleteMapping("/{username}")
     public ResponseEntity<Void> deleteEducation(@PathVariable String username) {
         educationService.deleteEducationByUsername(username);
         return ResponseEntity.noContent().build();
