@@ -69,7 +69,7 @@ public class ParentsData extends BaseEntity {
     //registeration and confirmation
 
     @Column(name = "office_num")
-    private Long officeNum;
+    private String officeNum;
     //registeration
 
     @Column(name = "village_num")
