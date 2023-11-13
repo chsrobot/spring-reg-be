@@ -7,6 +7,17 @@ spring:
   jpa:
     hibernate:
       ddl-auto: ${HIBERNATE_DDL_AUTO}
+  mail:
+    host: smtp.gmail.com
+    username: 39707@chs.ac.th
+    password: vypcdzciqncvxuie
+    port: 587
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+          auth: true
 
 file:
   upload-dir: ${FILE_UPLOAD_DIR}
