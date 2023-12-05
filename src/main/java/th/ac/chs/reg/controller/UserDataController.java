@@ -35,6 +35,11 @@ public class UserDataController {
         return null;
     }
 
+    @PatchMapping("/userdata/{username}")
+    public UserData partialUpdateUser(@PathVariable String username, @RequestBody UserData partialUserData) {
+        return null;
+    }
+
     @DeleteMapping("/userdata/{id}")
     public void deleteUser(@PathVariable Long id) {
         userDataService.deleteUser(id);
