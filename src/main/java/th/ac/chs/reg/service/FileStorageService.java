@@ -31,7 +31,7 @@ public class FileStorageService {
     }
 
     public String getFileForUser(String username,String fileType){
-        FileManagerModel fileManagerModel = fileManagerRepository.findByUsernameAndFileType(username,fileType);
+        FileManagerModel fileManagerModel = fileManagerRepository.findTopByUsernameAndFileTypeOrderByCreatedAtDesc(username,fileType);
         return fileManagerModel.getFileName();
     }
 
