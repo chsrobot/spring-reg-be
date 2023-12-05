@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import th.ac.chs.reg.model.ParentsData;
+import th.ac.chs.reg.model.UserData;
 import th.ac.chs.reg.service.ParentsDataService;
 
 import java.util.List;
@@ -48,6 +49,12 @@ public class ParentsDataController {
         ParentsData savedParentsData = parentsDataService.saveParentsData(parentsData);
         return ResponseEntity.ok(savedParentsData);
     }
+
+    @PutMapping("/{username}/{parentType}")
+    public ParentsData updateUser(@PathVariable String username,@PathVariable String parenType, @RequestBody ParentsData parentsData) {
+        return parentsDataService.putParentsData(username,parenType,parentsData);
+    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteParentsData(@PathVariable Long id) {
