@@ -3,19 +3,17 @@ package th.ac.chs.reg.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import th.ac.chs.reg.model.ParentsData;
+import th.ac.chs.reg.model.UserData;
 import th.ac.chs.reg.repository.ParentsDataRepository;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 @Service
 public class ParentsDataService {
 
-    private final ParentsDataRepository parentsDataRepository;
-
     @Autowired
-    public ParentsDataService(ParentsDataRepository parentsDataRepository) {
-        this.parentsDataRepository = parentsDataRepository;
-    }
+    private ParentsDataRepository parentsDataRepository;
 
     public List<ParentsData> getAllParentsData() {
         return parentsDataRepository.findAll();
@@ -37,6 +35,29 @@ public class ParentsDataService {
         return parentsDataRepository.save(parentsData);
     }
 
+    public ParentsData putParentsData(String username,String parentType,ParentsData parentsData){
+        ParentsData existParentData = parentsDataRepository.findByUsernameAndTypeParent(username,parentType);
+
+        if (existParentData == null) {
+            existParentData = new ParentsData();
+            existParentData.setUsername(username);
+        }
+
+        Field[] fields = UserData.class.getDeclaredFields();
+        for (Field field : fields) {
+            try {
+                field.setAccessible(true);
+                Object value = field.get(parentsData);
+                if (value != null) {
+                    field.set(existParentData, value);
+                }
+            } catch (IllegalAccessException e) {
+                System.out.println(e);
+            }
+        }
+
+        return parentsDataRepository.save(existParentData);
+    }
     public void deleteParentsData(Long id) {
         parentsDataRepository.deleteById(id);
     }
