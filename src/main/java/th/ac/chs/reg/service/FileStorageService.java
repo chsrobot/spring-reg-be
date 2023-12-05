@@ -19,7 +19,7 @@ public class FileStorageService {
 
     @Autowired
     private FileManagerRepository fileManagerRepository;
-    private FileManagerModel fileManagerModel;
+
     public String storeFile(MultipartFile file) throws IOException {
         FileManagerModel fileToSave = new FileManagerModel();
         String filename = fileIOUtils.storeFile(file);
@@ -30,8 +30,12 @@ public class FileStorageService {
         return filename;
     }
 
+    public String getFileForUser(String username,String fileType){
+        FileManagerModel fileManagerModel = fileManagerRepository.findByUsernameAndType(username,fileType);
+        return fileManagerModel.getFileName();
+    }
+
     public Resource loadFileAsResource(String filename) throws IOException {
-        Resource file = fileIOUtils.loadFileAsResource(filename);
-        return file;
+        return fileIOUtils.loadFileAsResource(filename);
     }
 }
