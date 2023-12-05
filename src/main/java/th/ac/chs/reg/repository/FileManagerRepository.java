@@ -6,5 +6,5 @@ import th.ac.chs.reg.model.User;
 
 public interface FileManagerRepository extends JpaRepository<FileManagerModel, Long> {
     FileManagerModel findByUsername(String username);
-    FileManagerModel findByUsernameAndType(String username,String fileType);
+    FileManagerModel findByUsernameAndFileType(String username,String fileType);
 }
