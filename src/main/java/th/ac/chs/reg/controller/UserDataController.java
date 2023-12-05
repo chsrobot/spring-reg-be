@@ -32,13 +32,9 @@ public class UserDataController {
 
     @PutMapping("/userdata/{username}")
     public UserData updateUser(@PathVariable String username, @RequestBody UserData userData) {
-        return null;
+        return userDataService.putUser(username,userData);
     }
 
-    @PatchMapping("/userdata/{username}")
-    public UserData partialUpdateUser(@PathVariable String username, @RequestBody UserData partialUserData) {
-        return null;
-    }
 
     @DeleteMapping("/userdata/{id}")
     public void deleteUser(@PathVariable Long id) {
