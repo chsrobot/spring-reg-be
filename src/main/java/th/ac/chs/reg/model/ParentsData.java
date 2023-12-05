@@ -37,7 +37,7 @@ public class ParentsData extends BaseEntity {
     //registeration and confirmation
 
     @Column(name = "identity_num", nullable = false)
-    private Long identityNum;
+    private String identityNum;
     //registeration and confirmation
 
     @Column(name = "relation")
@@ -49,7 +49,7 @@ public class ParentsData extends BaseEntity {
     //registeration and confirmation
 
     @Column(name = "phone_num", nullable = false)
-    private Long phoneNum;
+    private String phoneNum;
     //registeration and confirmation
 
     @Column(name = "email", nullable = false, unique = true)
@@ -65,7 +65,7 @@ public class ParentsData extends BaseEntity {
     //registeration and confirmation
 
     @Column(name = "salary")
-    private Long salary;
+    private String salary;
     //registeration and confirmation
 
     @Column(name = "office_num")
@@ -73,7 +73,7 @@ public class ParentsData extends BaseEntity {
     //registeration
 
     @Column(name = "village_num")
-    private Long villageNum;
+    private String villageNum;
     //registeration
 
     @Column(name = "lane")
