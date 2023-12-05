@@ -24,6 +24,12 @@ public class FileController {
         return ResponseEntity.ok("File uploaded with name: " + fileName);
     }
 
+    @GetMapping("/profile/{userName}/{fileType}")
+    public ResponseEntity<String> getFilebyUsernameAndType(@PathVariable String userName,@PathVariable String fileType,HttpServletRequest request) {
+        String toreturn = fileStorageService.getFileForUser(userName,fileType);
+        return ResponseEntity.ok(toreturn);
+    }
+
     @GetMapping("/download/{fileName:.+}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request) throws IOException {
         Resource resource = fileStorageService.loadFileAsResource(fileName);
