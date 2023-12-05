@@ -31,11 +31,11 @@ public class UserDataController {
     }
 
     @PutMapping("/userdata/{username}")
-    public UserData updateUser(@PathVariable Long id, @RequestBody UserData userData) {
+    public UserData updateUser(@PathVariable String username, @RequestBody UserData userData) {
         return null;
     }
 
-    @DeleteMapping("/userdata/{username}")
+    @DeleteMapping("/userdata/{id}")
     public void deleteUser(@PathVariable Long id) {
         userDataService.deleteUser(id);
     }
