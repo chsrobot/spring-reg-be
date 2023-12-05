@@ -31,7 +31,13 @@ public class UserDataService {
     }
 
     public UserData putUser(String username, UserData userData) {
-        UserData existuserdata =  userDataRepository.findByUsername(username);
+        UserData existuserdata = userDataRepository.findByUsername(username);
+
+        if (existuserdata == null) {
+            existuserdata = new UserData();
+            existuserdata.setUsername(username);
+        }
+
         Field[] fields = UserData.class.getDeclaredFields();
         for (Field field : fields) {
             try {
@@ -44,10 +50,10 @@ public class UserDataService {
                 System.out.println(e);
             }
         }
-//        existuserdata.setIdentityNum(userData.getIdentityNum());
-//        existuserdata.setBirthDay(userData.getBirthDay());
+
         return userDataRepository.save(existuserdata);
     }
+
 
     public void deleteUser(Long id) {
         userDataRepository.deleteById(id);
