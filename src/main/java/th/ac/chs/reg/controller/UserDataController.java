@@ -20,7 +20,7 @@ public class UserDataController {
         return userDataService.getAllUserData();
     }
 
-    @GetMapping("/userdata/{id}")
+    @GetMapping("/userdata/{username}")
     public UserData getUserDataByUsername(@PathVariable String username) {
         return userDataService.getUserDataByUsername(username);
     }
@@ -30,12 +30,12 @@ public class UserDataController {
         return userDataService.createUser(userData);
     }
 
-    @PutMapping("/userdata/{id}")
+    @PutMapping("/userdata/{username}")
     public UserData updateUser(@PathVariable Long id, @RequestBody UserData userData) {
         return null;
     }
 
-    @DeleteMapping("/userdata/{id}")
+    @DeleteMapping("/userdata/{username}")
     public void deleteUser(@PathVariable Long id) {
         userDataService.deleteUser(id);
     }
