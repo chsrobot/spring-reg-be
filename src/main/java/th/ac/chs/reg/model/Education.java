@@ -45,11 +45,11 @@ public class Education extends BaseEntity {
     //registeration and confirmation
 
     @Column(name = "student_id")
-    private Long studentId;
+    private String studentId;
     //registeration and confirmation
 
     @Column(name = "gpa")
-    private Long gpa;
+    private String gpa;
     //registeration and confirmation
 
     @Column(name = "school1")

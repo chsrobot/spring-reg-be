@@ -17,7 +17,7 @@ public class UserData extends BaseEntity {
     //registeration and confirmation
 
     @Column(name = "identity_num")
-    private Long identityNum;
+    private String identityNum;
     //registeration and confirmation
 
     @Column(name = "name_title_th")
@@ -85,7 +85,7 @@ public class UserData extends BaseEntity {
     //registeration and confirmation
 
     @Column(name = "house_code_now")
-    private Long houseCodeNow;
+    private String houseCodeNow;
     //registeration and confirmation
 
     @Column(name = "house_num_now")
@@ -93,7 +93,7 @@ public class UserData extends BaseEntity {
     //registeration and confirmation
 
     @Column(name = "village_num_now")
-    private Long villageNumNow;
+    private String villageNumNow;
     //registeration and confirmation
 
     @Column(name = "village_now")
@@ -125,6 +125,6 @@ public class UserData extends BaseEntity {
     //registeration and confirmation
 
     @Column(name = "phone_num")
-    private Long phoneNum;
+    private String phoneNum;
     //registeration and confirmation
 }
