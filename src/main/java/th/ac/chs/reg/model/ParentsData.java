@@ -15,31 +15,31 @@ public class ParentsData extends BaseEntity {
     @Column(name = "type_parent",nullable = false)
     private String typeParent;
 
-    @Column(name = "name_title_th", nullable = false)
+    @Column(name = "name_title_th")
     private String nameTitleTH;
     //registeration and confirmation
 
-    @Column(name = "firstname_th", nullable = false)
+    @Column(name = "firstname_th")
     private String firstNameTH;
     //registeration and confirmation
 
-    @Column(name = "lastname_th", nullable = false)
+    @Column(name = "lastname_th")
     private String lastNameTH;
     //registeration and confirmation
 
-    @Column(name = "name_title_en", nullable = false)
+    @Column(name = "name_title_en")
     private String nameTitleEN;
     //registeration and confirmation
 
-    @Column(name = "firstname_en", nullable = false)
+    @Column(name = "firstname_en")
     private String firstNameEN;
     //registeration and confirmation
 
-    @Column(name = "lastname_en", nullable = false)
+    @Column(name = "lastname_en")
     private String lastNameEN;
     //registeration and confirmation
 
-    @Column(name = "identity_num", nullable = false)
+    @Column(name = "identity_num")
     private Long identityNum;
     //registeration and confirmation
 
@@ -47,11 +47,11 @@ public class ParentsData extends BaseEntity {
     private String relation;
     //registeration and confirmation
 
-    @Column(name = "age", nullable = false)
+    @Column(name = "age")
     private Long age;
     //registeration and confirmation
 
-    @Column(name = "phone_num", nullable = false)
+    @Column(name = "phone_num")
     private Long phoneNum;
     //registeration and confirmation
 
