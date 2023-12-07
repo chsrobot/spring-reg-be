@@ -17,6 +17,9 @@ public class ParentsData {
     @Column(name = "username", nullable = false)
     private String username;
 
+    @Column(name = "type_parent",nullable = false)
+    private String typeParent;
+
     @Column(name = "name_title_th", nullable = false)
     private String nameTitleTH;
     //registeration and confirmation
