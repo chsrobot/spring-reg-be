@@ -7,10 +7,15 @@ import th.ac.chs.reg.model.BaseEntity;
 
 import java.time.Instant;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity(name = "parents_data")
-public class ParentsData extends BaseEntity {
+public class ParentsData {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+
+    @Column(name = "username", nullable = false)
+    private String username;
 
     @Column(name = "name_title_th", nullable = false)
     private String nameTitleTH;
@@ -99,5 +104,19 @@ public class ParentsData extends BaseEntity {
     @Column(name = "postal_code")
     private String postalCode;
     //registeration
+
+    @Column(name = "created_at")
+    Long createdAt;
+
+    @Column(name = "updated_at")
+    Long updatedAt;
+    @PrePersist
+    protected void onCreate() {
+        createdAt = Instant.now().getEpochSecond();
+    }
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = Instant.now().getEpochSecond();
+    }
 
 }
