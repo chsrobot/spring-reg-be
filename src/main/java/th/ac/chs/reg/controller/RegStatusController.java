@@ -26,8 +26,8 @@ public class RegStatusController {
     }
 
     @PostMapping("/status")
-    public RegStatus createUser(@RequestBody UserData userData) {
-        return regStatusService.createStatus(userData);
+    public RegStatus createUser(@RequestBody RegStatus regStatus) {
+        return regStatusService.createStatus(regStatus);
     }
 
     @PutMapping("/status/{username}")
