@@ -19,9 +19,15 @@ public class FileController {
     private FileStorageService fileStorageService;
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
-        String fileName = fileStorageService.storeFile(file);
+    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file,@RequestParam("username") String username,@RequestParam("fileType") String fileType) throws IOException {
+        String fileName = fileStorageService.storeFile(file,fileType,username);
         return ResponseEntity.ok("File uploaded with name: " + fileName);
+    }
+
+    @GetMapping("/profile/{userName}/{fileType}")
+    public ResponseEntity<String> getFilebyUsernameAndType(@PathVariable String userName,@PathVariable String fileType,HttpServletRequest request) {
+        String toreturn = fileStorageService.getFileForUser(userName,fileType);
+        return ResponseEntity.ok(toreturn);
     }
 
     @GetMapping("/download/{fileName:.+}")

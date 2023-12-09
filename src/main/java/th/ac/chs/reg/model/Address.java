@@ -17,7 +17,7 @@ public class Address extends BaseEntity {
     //confirmation
 
     @Column(name = "house_code", nullable = false)
-    private Long houseCode;
+    private String houseCode;
     //registeration and confirmation
 
     @Column(name = "house_num", nullable = false)
@@ -25,7 +25,7 @@ public class Address extends BaseEntity {
     //registeration and confirmation
 
     @Column(name = "village_num")
-    private Long villageNum;
+    private String villageNum;
     //registeration and confirmation
 
     @Column(name = "village")
@@ -57,11 +57,11 @@ public class Address extends BaseEntity {
     //registeration and confirmation
 
     @Column(name = "house_phone", nullable = false)
-    private Long housePhone;
+    private String housePhone;
     //registeration and confirmation
 
     @Column(name = "phone_num", nullable = false)
-    private Long phoneNum;
+    private String phoneNum;
     //registeration and confirmation
 
     @Column(name = "check_sub_district")

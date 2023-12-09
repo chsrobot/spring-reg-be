@@ -14,16 +14,25 @@ import th.ac.chs.reg.repository.UserRepository;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
-    private UserService userService;
+
+    @Autowired
+    private ActivationCodeService activationCodeService;
 
     public User registerUser(User user) throws Exception {
         try {
             if (userRepository.findByUsername(user.getUsername()) != null) {
                 throw new Exception("Username already exists");
             }
+
+            String code = activationCodeService.checkAndTestCode(user.getUsername(), user.getActivationCode());
+
             user.setUsername(user.getUsername());
+            user.setActivationCode(user.getActivationCode());
             user.setPassword(BCrypt.hashpw(user.getPassword(),BCrypt.gensalt()));
             return userRepository.save(user);
+        }
+        catch (RuntimeException e){
+            throw new RuntimeException(e);
         }
         catch (Exception e){
             throw new Exception(e);

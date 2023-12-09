@@ -9,7 +9,7 @@ import th.ac.chs.reg.model.UserData;
 import th.ac.chs.reg.repository.AddressRepository;
 import th.ac.chs.reg.repository.EducationRepository;
 import th.ac.chs.reg.repository.UserDataRepository;
-import th.ac.chs.reg.repository.ParentsDataReporitory;
+import th.ac.chs.reg.repository.ParentsDataRepository;
 
 @Service
 public class DataService {
@@ -17,7 +17,7 @@ public class DataService {
     private UserDataRepository userDataRepository;
 
     @Autowired
-    private ParentsDataReporitory parentsDataRepository;
+    private ParentsDataRepository parentsDataRepository;
 
     @Autowired
     private AddressRepository addressRepository;
