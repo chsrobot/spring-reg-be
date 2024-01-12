@@ -8,4 +8,10 @@ public class ResponseModel {
     public ResponseModel(String message){
         this.message = message;
     }
+    @Override
+    public String toString() {
+        JSONObject json = new JSONObject();
+        json.put("message", message);
+        return json.toString();
+    }
 }
