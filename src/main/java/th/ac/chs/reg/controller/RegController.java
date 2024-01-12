@@ -53,10 +53,12 @@ public class RegController {
     public  ResponseEntity<String> loginUser(@RequestBody User user){
         try{
             userService.loginUser(user);
-            return new ResponseEntity<>("OK" , HttpStatus.OK);
+            ResponseModel responseModel = new ResponseModel("OK");
+            return new ResponseEntity<>(responseModel.toString(), HttpStatus.OK);
         }
         catch (Exception e){
-            return new ResponseEntity<>("NONONO",HttpStatus.UNAUTHORIZED);
+            ResponseModel responseModel = new ResponseModel("NONONO");
+            return new ResponseEntity<>("responseModel",HttpStatus.UNAUTHORIZED);
         }
     }
 
