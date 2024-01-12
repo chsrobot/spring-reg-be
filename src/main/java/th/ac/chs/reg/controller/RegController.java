@@ -24,20 +24,20 @@ public class RegController {
     private ActivationCodeService activationCodeService;
 
     @PostMapping("/register")
-    public ResponseEntity<ResponseModel> registerUser(@RequestBody User user) throws Exception {
-
-        try{
+    public ResponseEntity<String> registerUser(@RequestBody User user) throws Exception {
+        try {
             userService.registerUser(user);
-            return new ResponseEntity<>(new ResponseModel("Created") , HttpStatus.CREATED);
+            ResponseModel responseModel = new ResponseModel("Created");
+            return new ResponseEntity<>(responseModel.toString(), HttpStatus.CREATED);
+        } catch (RuntimeException e) {
+            ResponseModel responseModel = new ResponseModel("Invalid Activation Code or Activation Code Has Been Used");
+            return new ResponseEntity<>(responseModel.toString(), HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            ResponseModel responseModel = new ResponseModel("Conflict");
+            return new ResponseEntity<>(responseModel.toString(), HttpStatus.CONFLICT);
         }
-        catch (RuntimeException e){
-            return new ResponseEntity<>(new ResponseModel("Invalid Activation Code or Activation Code Has Been Used"),HttpStatus.BAD_REQUEST);
-        }
-        catch (Exception e){
-            return new ResponseEntity<>(new ResponseModel("Conflict"),HttpStatus.CONFLICT);
-        }
-
     }
+
 
     @GetMapping("/hello")
     public ResponseEntity<String> hello(){
