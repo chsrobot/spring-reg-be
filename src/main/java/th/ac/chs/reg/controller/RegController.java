@@ -9,8 +9,10 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import th.ac.chs.reg.model.User;
+import th.ac.chs.reg.model.ResponseModel;
 import th.ac.chs.reg.service.ActivationCodeService;
 import th.ac.chs.reg.service.UserService;
+
 
 @RestController
 @RequestMapping("/api")
@@ -22,17 +24,17 @@ public class RegController {
     private ActivationCodeService activationCodeService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody User user) throws Exception {
+    public ResponseEntity<ResponseModel> registerUser(@RequestBody User user) throws Exception {
 
         try{
             userService.registerUser(user);
-            return new ResponseEntity<>("Created" , HttpStatus.CREATED);
+            return new ResponseEntity<>(new ResponseModel("Created") , HttpStatus.CREATED);
         }
         catch (RuntimeException e){
-            return new ResponseEntity<>("Invalid Activation Code or Activation Code Has Been Used",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new ResponseModel("Invalid Activation Code or Activation Code Has Been Used"),HttpStatus.BAD_REQUEST);
         }
         catch (Exception e){
-            return new ResponseEntity<>("Conflict",HttpStatus.CONFLICT);
+            return new ResponseEntity<>(new ResponseModel("Conflict"),HttpStatus.CONFLICT);
         }
 
     }
