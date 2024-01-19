@@ -12,20 +12,20 @@ import java.time.Instant;
 @Entity(name = "address")
 public class Address extends BaseEntity {
 
-    @Column(name = "parents_status", nullable = false)
+    @Column(name = "parents_status")
     private String parentsStatus;
     //confirmation
 
-    @Column(name = "house_code", nullable = false)
-    private Long houseCode;
+    @Column(name = "house_code")
+    private String houseCode;
     //registeration and confirmation
 
-    @Column(name = "house_num", nullable = false)
+    @Column(name = "house_num")
     private String houseNum;
     //registeration and confirmation
 
     @Column(name = "village_num")
-    private Long villageNum;
+    private String villageNum;
     //registeration and confirmation
 
     @Column(name = "village")
@@ -40,28 +40,28 @@ public class Address extends BaseEntity {
     private String road;
     //registeration and confirmation
 
-    @Column(name = "sub_district", nullable = false)
+    @Column(name = "sub_district")
     private String subDistrict;
     //registeration and confirmation
 
-    @Column(name = "district", nullable = false)
+    @Column(name = "district")
     private String district;
     //registeration and confirmation
 
-    @Column(name = "province", nullable = false)
+    @Column(name = "province")
     private String province;
     //registeration and confirmation
 
-    @Column(name = "postal_code", nullable = false)
+    @Column(name = "postal_code")
     private String postalCode;
     //registeration and confirmation
 
-    @Column(name = "house_phone", nullable = false)
-    private Long housePhone;
+    @Column(name = "house_phone")
+    private String housePhone;
     //registeration and confirmation
 
-    @Column(name = "phone_num", nullable = false)
-    private Long phoneNum;
+    @Column(name = "phone_num")
+    private String phoneNum;
     //registeration and confirmation
 
     @Column(name = "check_sub_district")

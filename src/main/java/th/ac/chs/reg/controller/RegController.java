@@ -9,8 +9,10 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import th.ac.chs.reg.model.User;
+import th.ac.chs.reg.model.ResponseModel;
 import th.ac.chs.reg.service.ActivationCodeService;
 import th.ac.chs.reg.service.UserService;
+
 
 @RestController
 @RequestMapping("/api")
@@ -23,19 +25,19 @@ public class RegController {
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody User user) throws Exception {
-
-        try{
+        try {
             userService.registerUser(user);
-            return new ResponseEntity<>("Created" , HttpStatus.CREATED);
+            ResponseModel responseModel = new ResponseModel("Created");
+            return new ResponseEntity<>(responseModel.toString(), HttpStatus.CREATED);
+        } catch (RuntimeException e) {
+            ResponseModel responseModel = new ResponseModel("Invalid Activation Code or Activation Code Has Been Used");
+            return new ResponseEntity<>(responseModel.toString(), HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            ResponseModel responseModel = new ResponseModel("Conflict");
+            return new ResponseEntity<>(responseModel.toString(), HttpStatus.CONFLICT);
         }
-        catch (RuntimeException e){
-            return new ResponseEntity<>("Invalid Activation Code or Activation Code Has Been Used",HttpStatus.BAD_REQUEST);
-        }
-        catch (Exception e){
-            return new ResponseEntity<>("Conflict",HttpStatus.CONFLICT);
-        }
-
     }
+
 
     @GetMapping("/hello")
     public ResponseEntity<String> hello(){
@@ -51,10 +53,12 @@ public class RegController {
     public  ResponseEntity<String> loginUser(@RequestBody User user){
         try{
             userService.loginUser(user);
-            return new ResponseEntity<>("OK" , HttpStatus.OK);
+            ResponseModel responseModel = new ResponseModel("OK");
+            return new ResponseEntity<>(responseModel.toString(), HttpStatus.OK);
         }
         catch (Exception e){
-            return new ResponseEntity<>("NONONO",HttpStatus.UNAUTHORIZED);
+            ResponseModel responseModel = new ResponseModel("NONONO");
+            return new ResponseEntity<>("responseModel",HttpStatus.UNAUTHORIZED);
         }
     }
 

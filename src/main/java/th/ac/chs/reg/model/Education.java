@@ -28,28 +28,28 @@ public class Education extends BaseEntity {
     private String typeRoom3;
     //registeration
 
-    @Column(name = "last_school", nullable = false)
+    @Column(name = "last_school")
     private String lastSchool;
     //registeration and confirmation
 
-    @Column(name = "district", nullable = false)
+    @Column(name = "district")
     private String district;
     //registeration and confirmation
 
-    @Column(name = "province", nullable = false)
+    @Column(name = "province")
     private String province;
     //registeration and confirmation
 
-    @Column(name = "grade_level", nullable = false)
+    @Column(name = "grade_level")
     private String gradeLevel;
     //registeration and confirmation
 
     @Column(name = "student_id")
-    private Long studentId;
+    private String studentId;
     //registeration and confirmation
 
-    @Column(name = "gpa", nullable = false)
-    private Long gpa;
+    @Column(name = "gpa")
+    private String gpa;
     //registeration and confirmation
 
     @Column(name = "school1")

@@ -19,19 +19,23 @@ public class FileStorageService {
 
     @Autowired
     private FileManagerRepository fileManagerRepository;
-    private FileManagerModel fileManagerModel;
-    public String storeFile(MultipartFile file) throws IOException {
+
+    public String storeFile(MultipartFile file,String filetype,String username) throws IOException {
         FileManagerModel fileToSave = new FileManagerModel();
         String filename = fileIOUtils.storeFile(file);
         fileToSave.setFileName(filename);
-        fileToSave.setFileType("Type"); //testing
-        fileToSave.setUsername("Username");  //testing
+        fileToSave.setFileType(filetype); //testing
+        fileToSave.setUsername(username);  //testing
         fileManagerRepository.save(fileToSave);
         return filename;
     }
 
+    public String getFileForUser(String username,String fileType){
+        FileManagerModel fileManagerModel = fileManagerRepository.findTopByUsernameAndFileTypeOrderByCreatedAtDesc(username,fileType);
+        return fileManagerModel.getFileName();
+    }
+
     public Resource loadFileAsResource(String filename) throws IOException {
-        Resource file = fileIOUtils.loadFileAsResource(filename);
-        return file;
+        return fileIOUtils.loadFileAsResource(filename);
     }
 }

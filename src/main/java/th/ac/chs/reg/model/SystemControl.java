@@ -8,25 +8,23 @@ import java.time.Instant;
 
 @Data
 @Entity
-@Table(name = "filemanagers")
-
-public class FileManagerModel {
+@Table(name = "system_control")
+public class SystemControl implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-
-    @Column(name="username")
-    private String username;
-    @Column(name="fileType")
-    private String fileType;
-    @Column(name="fileName")
-    private String fileName;
+    private Long id;
+    @Column(name = "type")
+    private String type;
+    @Column(name = "status")
+    private String status;
+    @Column(name = "message")
+    private Integer message;
 
     @Column(name = "created_at")
-    private Long createdAt;
+    Long createdAt;
 
     @Column(name = "updated_at")
-    private Long updatedAt;
+    Long updatedAt;
     @PrePersist
     protected void onCreate() {
         createdAt = Instant.now().getEpochSecond();
