@@ -9,10 +9,9 @@ spring:
     hibernate:
       ddl-auto: ${HIBERNATE_DDL_AUTO}
   mail:
-    host: smtp.chs.ac.th
+    host: smtp.gmail.com
     username: reg.a@chs.ac.th
-    password: adjiygvaubfvqqnv
-
+    password: itevsfjcefigrdvo
     port: 587
     properties:
       mail:
