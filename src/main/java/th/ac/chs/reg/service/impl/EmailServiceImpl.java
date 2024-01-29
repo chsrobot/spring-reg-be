@@ -11,6 +11,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Objects;
+
 @Service
 public class EmailServiceImpl implements EmailService {
     @Value("${spring.mail.username}")
@@ -33,9 +35,9 @@ public class EmailServiceImpl implements EmailService {
             mimeMessageHelper.setSubject(subject);
             mimeMessageHelper.setText(body);
 
-            for(int i=0;i< file.length;i++){
+            for(int i=0;i<file.length;i++){
                 mimeMessageHelper.addAttachment(
-                        file[i].getOriginalFilename(),
+                        Objects.requireNonNull(file[i].getOriginalFilename()),
                         new ByteArrayResource(file[i].getBytes())
                 );
             }

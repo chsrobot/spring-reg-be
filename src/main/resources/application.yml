@@ -10,8 +10,8 @@ spring:
       ddl-auto: ${HIBERNATE_DDL_AUTO}
   mail:
     host: smtp.gmail.com
-    username: 39707@chs.ac.th
-    password: vypcdzciqncvxuie
+    username: reg.a@chs.ac.th
+    password: itevsfjcefigrdvo
     port: 587
     properties:
       mail:
