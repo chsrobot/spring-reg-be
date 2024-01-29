@@ -92,7 +92,7 @@ public class RegController {
         }
     }
 
-    @PostMapping("/login")
+    @PostMapping("/admin_login")
     public  ResponseEntity<String> loginAdminUser(@RequestBody AdminUsers adminUsers){
         try{
             AdminUsers logged_inUser = adminUserService.loginAdminUser(adminUsers);
