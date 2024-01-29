@@ -43,7 +43,7 @@ public class ParentsDataService {
             existParentData.setUsername(username);
         }
 
-        Field[] fields = UserData.class.getDeclaredFields();
+        Field[] fields = ParentsData.class.getDeclaredFields();
         for (Field field : fields) {
             try {
                 field.setAccessible(true);
@@ -55,6 +55,7 @@ public class ParentsDataService {
                 System.out.println(e);
             }
         }
+
 
         return parentsDataRepository.save(existParentData);
     }

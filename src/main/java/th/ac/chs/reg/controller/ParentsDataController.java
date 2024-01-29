@@ -51,8 +51,8 @@ public class ParentsDataController {
     }
 
     @PutMapping("/{username}/{parentType}")
-    public ParentsData updateUser(@PathVariable String username,@PathVariable String parenType, @RequestBody ParentsData parentsData) {
-        return parentsDataService.putParentsData(username,parenType,parentsData);
+    public ParentsData updateUser(@PathVariable String username,@PathVariable String parentType, @RequestBody ParentsData parentsData) {
+        return parentsDataService.putParentsData(username,parentType,parentsData);
     }
 
 
