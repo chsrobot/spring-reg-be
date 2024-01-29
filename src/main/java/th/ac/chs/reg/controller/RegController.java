@@ -95,10 +95,10 @@ public class RegController {
         try {
             User logged_inUser = userService.loginUser(user);
             logger.info("User logged in successfully: {}", logged_inUser.getUsername());
-            return new ResponseEntity<>("OK", HttpStatus.OK);
+            return new ResponseEntity<>(new ResponseModel("OK").toString(), HttpStatus.OK);
         } catch (Exception e) {
             logger.error("Error logging in user: {}", e.getMessage());
-            return new ResponseEntity<>("Unauthorized", HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(new ResponseModel("Unauthorized").toString(), HttpStatus.UNAUTHORIZED);
         }
     }
 
@@ -107,10 +107,10 @@ public class RegController {
         try {
             AdminUsers logged_inUser = adminUserService.loginAdminUser(adminUsers);
             logger.info("Admin user logged in successfully: {}", logged_inUser.getUsername());
-            return new ResponseEntity<>("OK", HttpStatus.OK);
+            return new ResponseEntity<>(new ResponseModel("OK").toString(), HttpStatus.OK);
         } catch (Exception e) {
             logger.error("Error logging in admin user: {}", e.getMessage());
-            return new ResponseEntity<>("Unauthorized", HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(new ResponseModel("Unauthorized").toString(), HttpStatus.UNAUTHORIZED);
         }
     }
 }
