@@ -1,41 +1,37 @@
 package th.ac.chs.reg.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import th.ac.chs.reg.model.ResponseModel;
+import th.ac.chs.reg.model.AdminUsers;
 import th.ac.chs.reg.model.User;
+import th.ac.chs.reg.repository.AdminUserRepository;
 import th.ac.chs.reg.repository.UserRepository;
 
 import java.util.List;
 
 @Service
-public class UserService {
+public class AdminUserService {
     @Autowired
-    private UserRepository userRepository;
+    private AdminUserRepository adminUserRepository;
 
     @Autowired
     private ActivationCodeService activationCodeService;
 
-    public List<User> findAllUsers() {
-        return userRepository.findAll();
+    public List<AdminUsers> findAllAdminUsers() {
+        return adminUserRepository.findAll();
     }
 
-    public User registerUser(User user) throws Exception {
+    public AdminUsers registerAdminUser(AdminUsers adminUsers) throws Exception {
         try {
-            if (userRepository.findByUsername(user.getUsername()) != null) {
+            if (adminUserRepository.findByUsername(adminUsers.getUsername()) != null) {
                 throw new Exception("Username already exists");
             }
 
-            String code = activationCodeService.checkAndTestCode(user.getUsername(), user.getActivationCode());
-
-            user.setUsername(user.getUsername());
-            user.setActivationCode(user.getActivationCode());
-            user.setPassword(BCrypt.hashpw(user.getPassword(),BCrypt.gensalt()));
-            return userRepository.save(user);
+            adminUsers.setUsername(adminUsers.getUsername());
+            adminUsers.setPassword(BCrypt.hashpw(adminUsers.getPassword(),BCrypt.gensalt()));
+            return adminUserRepository.save(adminUsers);
         }
         catch (RuntimeException e){
             throw new RuntimeException(e);
@@ -45,11 +41,11 @@ public class UserService {
         }
     }
 
-    public User loginUser(User user) throws Exception {
+    public AdminUsers loginAdminUser(AdminUsers adminUsers) throws Exception {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         try{
-            User checkuser = userRepository.findByUsername(user.getUsername());
-            if(passwordEncoder.matches(user.getPassword() , checkuser.getPassword())){
+            AdminUsers checkuser = adminUserRepository.findByUsername(adminUsers.getUsername());
+            if(passwordEncoder.matches(adminUsers.getPassword() , checkuser.getPassword())){
                 System.out.println("YOOOOOOOOOOOOOOOO " + checkuser);
                 return checkuser;
             }
