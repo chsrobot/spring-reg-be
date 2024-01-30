@@ -64,7 +64,7 @@ public class RegController {
         }
     }
 
-    @PostMapping("/admin_register")
+    @PostMapping("/admin/register")
     public ResponseEntity<String> registerAdminUser(@RequestBody AdminUsers adminUsers) throws Exception {
         try {
             adminUserService.registerAdminUser(adminUsers);
@@ -107,7 +107,7 @@ public class RegController {
         }
     }
 
-    @PostMapping("/admin_login")
+    @PostMapping("/admin/login")
     public ResponseEntity<String> loginAdminUser(@RequestBody AdminUsers adminUsers) {
         try {
             AdminUsers logged_inUser = adminUserService.loginAdminUser(adminUsers);
