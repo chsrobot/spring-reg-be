@@ -1,5 +1,6 @@
 package th.ac.chs.reg.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import th.ac.chs.reg.model.UserData;
@@ -15,8 +16,13 @@ public class UserDataController {
     @Autowired
     private UserDataService userDataService;
 
+    @Autowired
+    private HttpServletRequest request;
+
     @GetMapping("/userdata")
-    public List<UserData> getAllUserData() {
+    public List<UserData> getAllUserData(HttpServletRequest request) {
+//        String customHeaderValue = (String) request.getAttribute("Custom-Header");
+//        System.out.println("Custom Header Value: " + customHeaderValue);
         return userDataService.getAllUserData();
     }
 

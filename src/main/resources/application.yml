@@ -20,5 +20,10 @@ spring:
             enable: true
           auth: true
 
+security:
+  jwt:
+    secret-key: fZwt6zlK4oBBxgp5T3MDJUG4cPgTHrdKssmg3uY2mk7ahKUZH4yd53NFBMqdfJCR
+    expiration-time: 3600000
+
 file:
   upload-dir: ${FILE_UPLOAD_DIR}
