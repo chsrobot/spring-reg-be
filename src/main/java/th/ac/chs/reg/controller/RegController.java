@@ -11,6 +11,7 @@ import th.ac.chs.reg.model.User;
 import th.ac.chs.reg.model.ResponseModel;
 import th.ac.chs.reg.service.ActivationCodeService;
 import th.ac.chs.reg.service.AdminUserService;
+import th.ac.chs.reg.service.JwtService;
 import th.ac.chs.reg.service.UserService;
 
 import java.util.List;
@@ -26,6 +27,9 @@ public class RegController {
 
     @Autowired
     private AdminUserService adminUserService;
+
+    @Autowired
+    private JwtService jwtService;
 
     @Autowired
     private ActivationCodeService activationCodeService;
@@ -95,7 +99,8 @@ public class RegController {
         try {
             User logged_inUser = userService.loginUser(user);
             logger.info("User logged in successfully: {}", logged_inUser.getUsername());
-            return new ResponseEntity<>(new ResponseModel("OK").toString(), HttpStatus.OK);
+            String jwt = jwtService.generateToken(logged_inUser);
+            return new ResponseEntity<>(new ResponseModel(jwt).toString(), HttpStatus.OK);
         } catch (Exception e) {
             logger.error("Error logging in user: {}", e.getMessage());
             return new ResponseEntity<>(new ResponseModel("Unauthorized").toString(), HttpStatus.UNAUTHORIZED);
