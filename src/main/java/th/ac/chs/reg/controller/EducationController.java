@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import th.ac.chs.reg.model.Education;
+import th.ac.chs.reg.model.ParentsData;
 import th.ac.chs.reg.service.EducationService;
 
 import java.util.List;
@@ -34,6 +35,11 @@ public class EducationController {
     public ResponseEntity<Education> saveEducation(@RequestBody Education education) {
         Education savedEducation = educationService.saveEducation(education);
         return ResponseEntity.ok(savedEducation);
+    }
+
+    @PutMapping("/{username}")
+    public Education updateEducation(@PathVariable String username, @RequestBody Education education) {
+        return educationService.putEducation(username,education);
     }
 
     @DeleteMapping("/{username}")
