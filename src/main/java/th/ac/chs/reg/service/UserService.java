@@ -50,7 +50,6 @@ public class UserService {
         try{
             User checkuser = userRepository.findByUsername(user.getUsername());
             if(passwordEncoder.matches(user.getPassword() , checkuser.getPassword())){
-                System.out.println("YOOOOOOOOOOOOOOOO " + checkuser);
                 return checkuser;
             }
             else{
