@@ -127,4 +127,8 @@ public class UserData extends BaseEntity {
     @Column(name = "phone_num")
     private String phoneNum;
     //registeration and confirmation
+
+    @Column(name = "comment", nullable = false)
+    private String comment;
+    
 }

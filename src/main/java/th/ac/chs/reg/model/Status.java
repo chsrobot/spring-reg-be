@@ -21,4 +21,7 @@ public class Status extends BaseEntity {
     @Column(name = "status_pay")
     private String statusPay = "waiting";
 
+    @Column(name = "comment", nullable = false)
+    private String comment;
+
 }

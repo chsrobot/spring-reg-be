@@ -68,4 +68,7 @@ public class Education extends BaseEntity {
     private String talent;
     //registeration and confirmation
 
+    @Column(name = "comment", nullable = false)
+    private String comment;
+
 }

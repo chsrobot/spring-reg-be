@@ -122,4 +122,7 @@ public class ParentsData {
         updatedAt = Instant.now().getEpochSecond();
     }
 
+    @Column(name = "comment", nullable = false)
+    private String comment;
+
 }

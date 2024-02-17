@@ -91,4 +91,7 @@ public class Address extends BaseEntity {
         return false;
     }
 
+    @Column(name = "comment", nullable = false)
+    private String comment;
+
 }
