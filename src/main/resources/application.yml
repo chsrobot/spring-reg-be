@@ -1,10 +1,29 @@
 spring:
+  api_key: ${API_KEY}
   datasource:
-    url: jdbc:postgresql://172.17.0.1:5432/reg2024
-    username: reg2024
-    password: Chsp@ssw0rd
-    driver-class-name: org.postgresql.Driver
-
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: ${DATABASE_DRIVER_CLASS}
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: ${HIBERNATE_DDL_AUTO}
+  mail:
+    host: smtp.gmail.com
+    username: reg.a@chs.ac.th
+    password: itevsfjcefigrdvo
+    port: 587
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+          auth: true
+
+security:
+  jwt:
+    secret-key: fZwt6zlK4oBBxgp5T3MDJUG4cPgTHrdKssmg3uY2mk7ahKUZH4yd53NFBMqdfJCR
+    expiration-time: 3600000
+
+file:
+  upload-dir: ${FILE_UPLOAD_DIR}

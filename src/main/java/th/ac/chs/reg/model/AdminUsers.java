@@ -11,10 +11,16 @@ import java.time.Instant;
 @Data
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity implements Serializable {
+public class AdminUsers extends BaseEntity implements Serializable {
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "tel")
+    private String tel;
+
+    @Column(name = "identity_num")
+    private String identity_num;
 
     @Column(name = "password")
     private String password;
@@ -24,8 +30,6 @@ public class User extends BaseEntity implements Serializable {
 
     @Column(name = "updated_at")
     private Long updatedAt;
-    @Column(name = "activation_code")
-    private String activationCode;
 
     @PrePersist
     protected void onCreate() {
