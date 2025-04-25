@@ -12,6 +12,7 @@ import th.ac.chs.reg.model.ResponseModel;
 import th.ac.chs.reg.service.ActivationCodeService;
 import th.ac.chs.reg.service.AdminUserService;
 import th.ac.chs.reg.service.JwtService;
+import th.ac.chs.reg.service.ActivationCodeService;
 import th.ac.chs.reg.service.UserService;
 
 import java.util.List;
@@ -80,6 +81,7 @@ public class RegController {
             logger.error("Conflict while registering admin user: {}", e.getMessage());
             return new ResponseEntity<>(responseModel.toString(), HttpStatus.CONFLICT);
         }
+
     }
 
     @GetMapping("/hello")
@@ -91,6 +93,11 @@ public class RegController {
     @GetMapping("/makecode")
     public ResponseEntity<String> makecode() throws Exception {
         logger.info("Creating activation code");
+        return new ResponseEntity<>(activationCodeService.createActivationCode(), HttpStatus.OK);
+    }
+
+    @GetMapping("/makecode")
+    public ResponseEntity<String> makecode() throws Exception {
         return new ResponseEntity<>(activationCodeService.createActivationCode(), HttpStatus.OK);
     }
 
